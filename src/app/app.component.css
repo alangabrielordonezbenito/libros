@@ -1,0 +1,20 @@
+header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: #fff;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #fff;
+  text-align: center;
+  padding: 10px;
+}
+
+.content-wrapper {
+  padding: 90px 0;
+}

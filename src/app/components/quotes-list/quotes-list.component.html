@@ -1,0 +1,59 @@
+<main class="container">
+  <h1>Citas</h1>
+  <section>
+    <p *ngIf="filteredBy">
+      Citas filtrar por palabra clave: <strong>{{ filteredBy }}</strong>
+    </p>
+    <p *ngIf="sortedBy">
+      Citas han sido pordenados por: <strong>{{ sortedBy }}</strong>
+    </p>
+    <div class="grid">
+      <form
+        role="search"
+        #searchForm="ngForm"
+        (ngSubmit)="onSubmit(searchForm)"
+        novalidate
+      >
+        <input
+          #search="ngModel"
+          name="search"
+          type="search"
+          ngModel
+          placeholder="Search"
+          (input)="clear()"
+          required
+        />
+        <input type="submit" />
+      </form>
+      <div class="butons-wrapper">
+        <button (click)="sortQuotes('title')" class="secondary">
+          Clasificar por libro
+        </button>
+        <button (click)="sortQuotes('author')" class="secondary">
+          Clasificar por Autor
+        </button>
+        <button (click)="clear()" class="contrast">limpiar filtros</button>
+      </div>
+    </div>
+  </section>
+  <section class="quotes-wrapper">
+    <blockquote *ngFor="let quote of quotes">
+      <article>
+        <p>{{ quote.content }}</p>
+        <div class="tabs-container">
+          <kbd
+            *ngFor="let tag of quote.tags"
+            (click)="filterQuotes('keyword', tag)"
+            >{{ tag }}</kbd
+          >
+        </div>
+        <footer>
+          <span
+            ><strong>{{ quote.author }}</strong></span
+          >,
+          <cite>{{ quote.title }}</cite>
+        </footer>
+      </article>
+    </blockquote>
+  </section>
+</main>

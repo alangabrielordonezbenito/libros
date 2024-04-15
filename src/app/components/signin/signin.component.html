@@ -1,0 +1,28 @@
+<main class="container">
+  <h1>Login</h1>
+
+  <div *ngIf="errorMessage">{{ errorMessage }}</div>
+
+  <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    <div>
+      <input type="text" placeholder="Username" formControlName="username" />
+    </div>
+    <div>
+      <input type="text" placeholder="Email" formControlName="email" />
+    </div>
+    <div>
+      <input
+        type="password"
+        placeholder="Password"
+        formControlName="password"
+      />
+    </div>
+    <div>
+      <button type="submit">Sign In</button>
+    </div>
+  </form>
+
+  <section (click)="signInWithGoogle()">
+    <button>Sign In with Google</button>
+  </section>
+</main>

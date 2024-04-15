@@ -1,0 +1,71 @@
+<header class="container-fluid">
+  <nav>
+    <ul>
+      <li>
+        <a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page"
+          >Libros</a
+        >
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <a
+          routerLink="/quotes"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          >Citas</a
+        >
+      </li>
+      <li>
+        <a
+          routerLink="/authors"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          >Autores</a
+        >
+      </li>
+    </ul>
+    <ul *ngIf="currentUser; else authenticate">
+      <li>
+        <a
+          routerLink="/user-space"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          >{{ currentUser }}'s Citas</a
+        >
+      </li>
+      <li>
+        <button (click)="logout()" routerLinkActive="active" class="secondary">
+          Cerrar sesión
+        </button>
+      </li>
+    </ul>
+    <ng-template #authenticate>
+      <ul>
+        <li>
+          <a
+            routerLink="/login"
+            routerLinkActive="active"
+            ariaCurrentWhenActive="page"
+            >Iniciar seción</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/signin"
+            routerLinkActive="active"
+            ariaCurrentWhenActive="page"
+            >Registrarse</a
+          >
+        </li>
+      </ul>
+    </ng-template>
+  </nav>
+</header>
+<div class="content-wrapper">
+  <router-outlet></router-outlet>
+</div>
+
+<footer>
+  <button class="outline contrast" (click)="toggleTheme()">Cambiar tema</button>
+</footer>

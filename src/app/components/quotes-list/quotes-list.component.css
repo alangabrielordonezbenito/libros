@@ -1,0 +1,25 @@
+.quotes-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.butons-wrapper {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.butons-wrapper > button {
+  margin-right: 20px;
+}
+
+blockquote {
+  max-width: 400px;
+}
+
+.tabs-container {
+  text-align: center;
+}
+
+kbd {
+  margin: 4px;
+}
